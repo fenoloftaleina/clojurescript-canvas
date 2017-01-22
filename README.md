@@ -6,7 +6,7 @@ Experiments with clojurescript, reagent, html canvas, and pictures.
 See it running
 --------------
 
-Go to https://fenoloftaleina.github.io/sonja.
+Go to https://fenoloftaleina.github.io/sonja/public.
 
 How to run it yourself?
 -----------------------
