@@ -7,17 +7,23 @@
 (defn by-id [id]
   (.getElementById js/document (name id)))
 
+(defn map-px [y x]
+  (+ (* 4 x) (* 4 256 y)))
+
 (defn get-px [data y x]
-  (let [a (+ (* 4 x) (* 4 256 y))]
+  (let [a (map-px y x)]
     (doall
       (map
         #(aget data (+ a %))
         (range 3)))))
 
+(defn get-image-data [context]
+  (.-data (.getImageData context 0 0 256 256)))
+
 (defn pixelize! [context m]
   (let [previous-m (- m 1)]
     (if (> previous-m 1)
-      (let [image-data (.-data (.getImageData context 0 0 256 256))
+      (let [image-data (get-image-data context)
             divider 4
             range-m 2
             xy-size-rect-colors (fn [y x]
@@ -47,9 +53,6 @@
                    [y x])))))))
 
 (def counter (r/atom 0))
-
-(defn pow [a x]
-  (reduce * (repeat x a)))
 
 (defn ease-out [a]
   80)
