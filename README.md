@@ -24,3 +24,8 @@ python -m SimpleHTTPServer
 ```
 
 Go to http://localhost:8000.
+
+Only one experiment?
+--------------------
+
+Jump from one git tag to another to see different experiments.
