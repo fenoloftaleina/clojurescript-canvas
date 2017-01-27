@@ -15,8 +15,8 @@ return (((4) * x) + (((4) * sonja.core.w) * y));
 sonja.core.get_px = (function sonja$core$get_px(data,y,x){
 var a = sonja.core.map_px.call(null,y,x);
 return cljs.core.doall.call(null,cljs.core.map.call(null,((function (a){
-return (function (p1__23214_SHARP_){
-return (data[(a + p1__23214_SHARP_)]);
+return (function (p1__23279_SHARP_){
+return (data[(a + p1__23279_SHARP_)]);
 });})(a))
 ,cljs.core.range.call(null,(3))));
 });
@@ -35,17 +35,17 @@ setTimeout((function (){
 return cljs.core.swap_BANG_.call(null,sonja.core.counter,cljs.core.partial.call(null,cljs.core._PLUS_,(1)));
 }),(50));
 
-context.drawImage(sonja.core.by_id.call(null,"this"),(0),(0));
+context.drawImage(image,(0),(0));
 
-var image_data_23216 = sonja.core.get_image_data.call(null,context);
-var pixels_23217 = image_data_23216.data;
-cljs.core.dorun.call(null,cljs.core.map.call(null,((function (image_data_23216,pixels_23217){
-return (function (p1__23215_SHARP_){
-return (pixels_23217[(p1__23215_SHARP_ + cljs.core.rand_int.call(null,(4)))] = ((50) + cljs.core.rand_int.call(null,(50))));
-});})(image_data_23216,pixels_23217))
+var image_data_23281 = sonja.core.get_image_data.call(null,context);
+var pixels_23282 = image_data_23281.data;
+cljs.core.dorun.call(null,cljs.core.map.call(null,((function (image_data_23281,pixels_23282){
+return (function (p1__23280_SHARP_){
+return (pixels_23282[(p1__23280_SHARP_ + cljs.core.rand_int.call(null,(12)))] = ((50) + cljs.core.rand_int.call(null,(50))));
+});})(image_data_23281,pixels_23282))
 ,cljs.core.range.call(null,(0),sonja.core.wh,(12))));
 
-sonja.core.put_image_data.call(null,context,image_data_23216);
+sonja.core.put_image_data.call(null,context,image_data_23281);
 
 return null;
 }).call(null);
