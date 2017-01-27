@@ -33,7 +33,7 @@
      (js/setTimeout
        (fn [] (swap! counter (partial + 1)))
        50)
-     (.drawImage context (by-id "this") 0 0)
+     (.drawImage context image 0 0)
      (let [image-data (get-image-data context)
            pixels (.-data image-data)]
        (dorun (map #(aset ^ints pixels (+ % (rand-int 4)) (+ 50 (rand-int 50))) (range 0 wh 12)))
