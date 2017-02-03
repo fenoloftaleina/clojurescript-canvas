@@ -1,4 +1,4 @@
-Sonja
+ClojureScript Canvas
 =====
 
 Experiments with clojurescript, reagent, html canvas, and pictures.
