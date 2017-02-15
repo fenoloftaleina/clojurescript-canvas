@@ -14,10 +14,9 @@
 
 (defn get-px [data y x]
   (let [a (map-px y x)]
-    (doall
-      (map
-        #(aget data (+ a %))
-        (range 3)))))
+    (mapv
+      #(aget data (+ a %))
+      (range 3))))
 
 (defn get-image-data [context]
   (.getImageData context 0 0 w h))
