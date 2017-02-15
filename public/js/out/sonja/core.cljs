@@ -14,10 +14,9 @@
 
 (defn get-px [data y x]
   (let [a (map-px y x)]
-    (doall
-      (map
-        #(aget data (+ a %))
-        (range 3)))))
+    (mapv
+      #(aget data (+ a %))
+      (range 3))))
 
 (defn get-image-data [context]
   (.getImageData context 0 0 w h))
@@ -35,8 +34,13 @@
        50)
      (.drawImage context image 0 0)
      (let [image-data (get-image-data context)
-           pixels (.-data image-data)]
-       (dorun (map #(aset ^ints pixels (+ % (rand-int 12)) (+ 50 (rand-int 50))) (range 0 wh 12)))
+           pixels (.-data image-data)
+           modulated-counter (mod @counter 255)]
+       (doseq [px-pos (range 0 wh 4)]
+         (doseq [color-offset (range 3)]
+           (let [pos (+ px-pos color-offset)
+                 px (aget pixels pos)]
+             (aset pixels pos (- px (mod px modulated-counter))))))
        (put-image-data context image-data))
        nil)))
 
